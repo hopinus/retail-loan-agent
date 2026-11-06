@@ -1,0 +1,28 @@
+name: Monthly External Data Auto-Fetcher
+
+on:
+  schedule:
+    - cron: '0 23 25-31 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  run-crawler:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - run: pip install requests beautifulsoup4
+      - env:
+          ECOS_API_KEY: ${{ secrets.ECOS_API_KEY }}
+        run: python fetch_data.py
+      - run: |
+          git config --global user.name "Market-Data-Bot"
+          git config --global user.email "bot@github.com"
+          git add latest_market_data.json
+          git commit -m "Auto-update market data [skip ci]" || exit 0
+          git push
