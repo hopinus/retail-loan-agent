@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#1b2744" />
+  <title>소매여신 시장환경 분석 AI Agent · MVP</title>
+  <link rel="stylesheet" href="/static/styles.css?v=allocation" />
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar" aria-label="주요 메뉴">
+    <div class="brand"><div class="brand-icon">▥</div><div><strong>소매여신 시장환경 분석</strong><span>AI Agent <em>MVP</em></span></div></div>
+    <nav id="mainNav" class="navigation">
+      <button class="navitem active" data-view="home"><span class="navicon">⌂</span><span>홈</span></button>
+      <button class="navitem" data-view="chat"><span class="navicon">◉</span><span>대화하기</span></button>
+      <button class="navitem" data-view="reports"><span class="navicon">▤</span><span>분석 보고서</span></button>
+      <button class="navitem" data-view="allocation"><span class="navicon">▱</span><span>전략 배분</span></button>
+      <button class="navitem" data-view="scenario"><span class="navicon">☷</span><span>시나리오 분석</span></button>
+      <button class="navitem" data-view="data"><span class="navicon">▦</span><span>자료 관리</span></button>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="agent-state"><span class="mini-robot">✦</span><span><strong>Agent 상태</strong><small id="modeSide">연결 확인 중</small></span><span class="status-dot"></span></div>
+      <p>연구·시연용 프로그램<br/>고객별 원자료 업로드 금지</p>
+    </div>
+  </aside>
+  <div class="workspace">
+    <header class="topbar">
+      <div class="title-wrap"><h1>소매여신 시장환경 분석 <span>AI Agent</span></h1><p>시장·정책·실적을 연결해 월별 전략을 분석하고 제안합니다.</p></div>
+      <div class="top-actions"><span class="period" id="periodLabel">▣ 2026년 12월 <small>예시</small></span><span class="mode-pill" id="modePill">◌ 모드 확인 중</span><a class="connection-check" href="/api/diagnose" target="_blank" rel="noopener noreferrer">API 연결 점검</a></div>
+    </header>
+    <main class="content">
+      <section id="view-home" class="view active" aria-label="Agent 홈">
+        <div class="dashboard-grid">
+          <section class="main-column">
+            <div class="hero">
+              <div class="hero-top"><div class="robot" aria-hidden="true"><div class="antenna"></div><div class="robot-face"><span class="eye"></span><span class="eye"></span><span class="smile"></span></div></div><div class="hero-words"><div class="eyebrow">YOUR RETAIL LENDING COPILOT</div><h2>안녕하세요!<br/>소매여신 시장환경 분석 AI Agent입니다.</h2><p>어떤 분석이 필요하신가요?</p></div></div>
+              <div class="quick-grid">
+                <button class="quick-action" data-ask="등록된 시장환경 자료를 분석하고, 주담대·신용대출에 대한 주요 시사점을 정리해 줘."><span class="tile-icon purple">▥</span><strong>시장환경 분석</strong><small>금리 · 경기 · 경쟁기관</small></button>
+                <button class="quick-action" data-ask="등록된 정책·규제 자료를 검토하고, 가계부채 총량관리 및 K-ICS 관련 확인사항을 알려줘."><span class="tile-icon indigo">⚖</span><strong>정책·규제 분석</strong><small>DSR · LTV · K-ICS</small></button>
+                <button class="quick-action" data-ask="현재 데이터로 상품별 순증과 신용대출 목표 달성 위험을 진단해 줘."><span class="tile-icon blue">▱</span><strong>포트폴리오 진단</strong><small>실적 · 목표 · 위험</small></button>
+                <button class="quick-action" data-go="scenario"><span class="tile-icon teal">☷</span><strong>시나리오 분석</strong><small>실행·회수 가정 비교</small></button>
+              </div>
+            </div>
+            <div class="suggestion-panel"><div class="section-title"><span class="sparkle">✧</span><h3>이런 질문을 해보세요</h3></div>
+              <button class="suggestion" data-ask="현재 등록된 시장환경과 정책 변화의 핵심 이슈 및 시사점을 알려줘."><span>◉</span> 이번 달 금융시장과 정책 변화의 핵심 이슈는?</button>
+              <button class="suggestion" data-ask="현재 전망 기준으로 상품별 순증과 목표 달성 위험을 진단해 줘."><span>◉</span> 현재 전망 기준으로 상품별 순증과 목표 달성 위험을 진단해 줘.</button>
+              <button class="suggestion" data-ask="신용대출 순증을 확대할 때 총잔액 변동과 가정한도에 미치는 영향을 분석하고 대응전략을 제안해 줘."><span>◉</span> 신용대출 순증을 확대한다면 대응 전략은?</button>
+            </div>
+            <div class="home-bottom-note"><span class="info-icon">i</span><span>지금 보이는 수치는 <b>가상 시연자료</b>입니다. 실제 최신 금융시장 정보와 회사 실적은 업로드·연동 후 분석할 수 있습니다.</span></div>
+          </section>
+          <aside class="insights" aria-label="요약 정보">
+            <div class="insight-card"><div class="side-heading"><span class="insight-ico">◎</span><h3>이번 달 핵심 요약</h3></div><div id="marketSummary" class="insight-rows"><div class="insight-row"><span class="circ neutral">⌁</span><span>시장자료 미등록<br/><small>현재 데이터 기준 판단 불가</small></span></div><div class="insight-row"><span class="circ neutral">▤</span><span>규제자료 미등록<br/><small>회사별 적용 기준 검증 필요</small></span></div><div class="insight-row"><span class="circ warn">!</span><span>샘플 순증 계산 중</span></div></div></div>
+            <div class="insight-card"><div class="side-heading"><span class="insight-ico">▥</span><h3>상품별 순증 전망</h3></div><div id="miniChart" class="mini-chart"></div><div class="total-row"><b>전체 순증</b><strong id="totalNet">+20억</strong></div><div class="tiny-note" id="dataOriginSmall">예시 데이터 · 단위: 억 원</div></div>
+            <button data-go="allocation" class="strategy-link"><span class="circ ok">✓</span><span><strong>전략 배분안 비교</strong><small>목표와 제약으로 배분안 만들기</small></span><span class="arrow">›</span></button>
+            <div class="evidence-card"><span>✦</span><strong>근거 중심 분석</strong><small>등록된 자료, 계산 결과, 미확인 정보를 구분합니다.</small></div>
+          </aside>
+        </div>
+      </section>
+      <section id="view-chat" class="view" aria-label="대화하기">
+        <div class="page-heading"><div><span class="eyebrow">CONVERSATION</span><h2>AI Agent와 대화하기</h2><p>실적을 계산하거나 등록된 시장·정책 자료를 분석할 수 있습니다.</p></div><button class="btn light" id="clearChat">새 대화</button></div>
+        <div class="chat-panel"><div id="chatMessages" class="chat-messages"><div class="empty-chat"><div class="empty-symbol">✦</div><h3>분석할 내용을 입력해주세요</h3><p>예: “신용대출 순증목표 달성 가능성을 알려줘.”</p></div></div><div class="chat-suggestions"><button data-ask="상품별 순증과 목표 대비 차이를 계산해 줘">상품별 순증 계산</button><button data-ask="현재 가정한도 대비 잔여 여력을 알려줘">가정한도 여력</button><button data-ask="전략적 대응방안을 제안해 줘">전략 제안</button></div></div>
+      </section>
+      <section id="view-allocation" class="view" aria-label="전략 배분">
+        <div class="page-heading">
+          <div><h2>월별 자산 배분안 비교</h2><p id="allocationBasis">집계자료를 불러오는 중입니다.</p></div>
+        </div>
+        <form id="allocationForm" class="allocation-form">
+          <div class="panel allocation-panel">
+            <h3>내부 목표와 필수 제약</h3>
+            <p class="note">1순위부터 순증 목표를 맞추며, 같은 순위는 표의 순서를 따릅니다. 비워 둔 하한·상한은 별도 제약 없이 계산합니다. 금액 단위는 억 원입니다.</p>
+            <label class="allocation-cap">내부 총순증 상한 <input name="cap" type="number" min="0" max="1000000000" step="0.00001" required></label>
+            <div class="allocation-scroll">
+              <table class="result-table allocation-table">
+                <thead><tr><th scope="col">상품</th><th scope="col">순증 목표</th><th scope="col">우선순위</th><th scope="col">실행 하한</th><th scope="col">실행 상한</th><th scope="col">순증 하한</th><th scope="col">순증 상한</th></tr></thead>
+                <tbody id="allocationRules"></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="panel allocation-panel">
+            <div class="section-title"><h3>외부 환경 시나리오</h3><button id="allocationAdd" type="button" class="btn light">시나리오 추가</button></div>
+            <p class="note">기준안은 항상 계산합니다. 외부 시나리오에는 자료 관리에서 수집하거나 등록한 근거를 연결하고 실행·회수 가정을 확인하세요.</p>
+            <div class="allocation-actions">
+              <button id="allocationFetch" type="button" class="btn light">외부 환경 변화 조회</button>
+              <button id="allocationRefresh" type="button" class="btn light">근거 목록 다시 불러오기</button>
+              <button type="button" class="btn light" data-go="data">자료 관리 열기</button>
+              <span id="allocationEvidenceStatus" class="note" role="status"></span>
+            </div>
+            <details id="releaseReview"><summary>새 금융당국 발표 조회 및 조치별 검토</summary>
+              <label>발표 기관<select id="releaseAgency"><option value="fsc">금융위원회</option><option value="fss">금융감독원</option></select></label>
+              <label>제목 검색어 (빈칸은 최신 목록)<input id="releaseTerm" maxlength="80"></label>
+              <button type="button" class="btn light" id="releaseFetch">공식 발표 조회</button>
+              <label>발표 선택<select id="releaseList"></select></label>
+              <button type="button" class="btn light" id="releaseExtract" disabled>조치별 검토표 만들기</button>
+              <p id="releaseStatus" role="status"></p><div id="releaseActions"></div></details>
+            <details id="policyTable"><summary>정책 조치 검토표 · 금융위원회 발표 사례</summary>
+              <div id="policyFacts" aria-live="polite"></div>
+              <label>검토 결정<select id="policyDecision" disabled><option value="">검토하지 않음</option><option>이번 달 적용</option><option>향후 시나리오</option><option>해당 없음</option></select></label>
+              <label>선택 이유<textarea id="policyReason" maxlength="500" disabled></textarea></label>
+              <label>담당자가 산정한 월간 주담대 실행 상한 (억 원)<input id="policyLimit" type="number" min="0" max="1000000000" step="0.00001" disabled></label>
+              <p class="note">발표 당시 사례입니다. 해당 월의 후속 규정과 경과조치를 확인하세요. 개별 대출 한도를 월간 실행 상한으로 자동 환산하지 않습니다.</p>
+            </details>
+            <div id="allocationCases"></div>
+          </div>
+          <div class="allocation-actions">
+            <button id="allocationSubmit" type="submit" class="btn primary">배분안 계산·비교</button>
+            <span id="allocationStatus" role="status"></span>
+          </div>
+        </form>
+        <div id="allocationResults" aria-label="배분안 비교 결과"></div>
+      </section>
+      <section id="view-scenario" class="view" aria-label="시나리오 분석">
+        <div class="page-heading"><div><span class="eyebrow">WHAT-IF SIMULATOR</span><h2>월별 순증 시나리오 분석</h2><p>실행·회수금액을 변경하면 순증과 가정한도 여력이 즉시 계산됩니다.</p></div><button id="resetScenario" class="btn light">초기화</button></div>
+        <div class="scenario-grid"><div class="scenario-form panel"><div class="section-title"><h3>시나리오 조건</h3><span class="small-tag">입력값 · 억 원</span></div><div class="scenario-presets"><button class="preset active" data-preset="base">기본</button><button class="preset" data-preset="adverse">불리</button><button class="preset" data-preset="favorable">유리</button></div>
+          <div id="scenarioFields" class="scenario-fields"></div><div class="cap-input"><label for="capValue">총잔액 증가 가정한도 <small>규제한도 아님</small></label><div class="number-wrap"><input id="capValue" type="number" min="0" step="10" value="30"/><span>억 원</span></div></div><div class="warning-box">상품별 규제 포함 여부는 별도 확인 대상입니다. 여기서 표시하는 잔여여력은 가상의 총잔액 한도 기준입니다.</div><button id="scenarioAsk" class="btn primary full">✦ 이 조건으로 전략 Agent 분석</button></div>
+          <div class="scenario-output panel"><div class="section-title"><h3>시뮬레이션 결과</h3><span id="scenarioSource" class="small-tag">샘플 데이터</span></div><div class="metric-line"><span>전체 순증</span><strong id="scenarioTotal">+20억</strong></div><div class="metric-line"><span>가정한도 대비 잔여</span><strong id="scenarioRemaining">+10억</strong></div><div class="meter"><div id="meterFill" class="meter-fill"></div></div><div class="callout" id="scenarioWarning">가정한도 이내입니다.</div><table class="result-table"><thead><tr><th>상품</th><th>실행</th><th>회수</th><th>순증</th></tr></thead><tbody id="scenarioTable"></tbody></table><p class="tiny-note">단위: 억 원 · 규제상 관리대상 잔액 순증 및 K-ICS 자본영향 계산 아님</p></div></div>
+      </section>
+      <section id="view-data" class="view" aria-label="자료 관리">
+        <div class="panel external-panel">
+          <h3>공식 외부 데이터 연결</h3>
+          <p>ECOS 주요 경제지표와 OpenDART 공시 목록을 조회합니다. 연결 후 대화할 때 자동으로 조회하며 10분간 캐시합니다. 회사 실적 예시 데이터는 별도입니다.</p>
+          <form id="externalKeyForm" autocomplete="off">
+            <div class="field-pair">
+              <label>ECOS API 키 <input id="ecosKey" type="password" autocomplete="new-password" maxlength="200" placeholder="비워두면 기존 키 유지" /></label>
+              <label>OpenDART API 키 <input id="dartKey" type="password" autocomplete="new-password" maxlength="200" placeholder="비워두면 기존 키 유지" /></label>
+            </div>
+            <p><a href="https://ecos.bok.or.kr/api/" target="_blank" rel="noopener noreferrer">ECOS 인증키 발급 ↗</a> · <a href="https://opendart.fss.or.kr/" target="_blank" rel="noopener noreferrer">OpenDART 인증키 발급 ↗</a></p>
+            <button class="btn primary" type="submit">키 암호화 저장</button>
+            <p class="note">키는 이 PC의 Windows 계정으로 암호화해 프로젝트 밖에 저장합니다. 조회 시 해당 기관으로 전송하며, 조회된 공개 데이터는 대화 분석 시 LLM 제공자로 전송합니다. 키를 채팅에 입력하지 마세요.</p>
+          </form>
+          <p id="externalStatus" role="status">연결 설정 확인 중…</p>
+          <div class="external-actions">
+            <button id="fetchEcos" class="btn light">ECOS 주요지표 조회</button>
+            <label>DART 회사 고유번호 (선택, 8자리)<input id="dartCorp" inputmode="numeric" maxlength="8" placeholder="미입력 시 전체 기업 공시" /></label>
+            <button id="fetchDart" class="btn light">최근 30일 공시 조회</button>
+          </div>
+          <div class="external-actions">
+            <label>재무정보 사업연도<input id="dartYear" type="number" min="2015" /></label>
+            <label>보고서<select id="dartReport"><option value="11011">사업보고서</option><option value="11013">1분기</option><option value="11012">반기</option><option value="11014">3분기</option></select></label>
+            <label>재무제표<select id="dartFs"><option value="OFS">별도</option><option value="CFS">연결</option></select></label>
+            <button id="fetchFinancial" class="btn light">지정 회사 재무계정 조회</button>
+          </div>
+          <p class="note">재무계정 조회는 회사 고유번호가 필요합니다. 지정한 기간의 자산·부채·자본·대출·손익 관련 계정을 원래 금액·통화 단위로 제공합니다. 조회한 조건은 현재 세션의 대화 분석에 반영됩니다.</p>
+          <p class="note">DART는 최신 최대 40건의 제목·접수일·원문 링크를 조회합니다. 공시 본문·재무수치 분석은 포함하지 않습니다. ECOS 기준시점과 공표일을 구분하며 공표일 미제공 시 미확인으로 표시합니다.</p>
+          <div id="externalResults" aria-live="polite"></div>
+        </div>
+        <div class="page-heading"><div><span class="eyebrow">DATA & EVIDENCE</span><h2>집계자료 및 근거 관리</h2><p>신뢰할 수 있는 계산과 분석을 위해 자료의 출처·공표일을 관리합니다.</p></div><span class="small-tag">세션 내 임시 저장</span></div>
+        <div class="data-grid"><div class="panel upload-panel"><div class="section-title"><h3>상품별 집계자료</h3><span class="small-tag">CSV · XLSX</span></div><div class="dropbox"><div class="drop-ico">⇧</div><strong>실행·회수 자료 업로드</strong><p>상품, 실행, 회수 3개 필수 열<br/>주담대·신용대출·보험계약대출 각 1행</p><label class="btn primary file-label" for="portfolioFile">파일 선택</label><input id="portfolioFile" type="file" accept=".csv,.xlsx" hidden/></div><div class="source-line"><strong>현재 데이터</strong><span id="dataSourceLabel">예시 데이터</span></div><a class="download-link" href="/static/sample_portfolio.csv" download>↓ CSV 입력 예시 다운로드</a><p class="note">고객명·계좌번호·주민번호 등 개인 원자료는 업로드할 수 없습니다. 서버 메모리에만 집계값을 보관하는 로컬 연구용 데모입니다.</p></div>
+          <div class="panel ref-panel"><div class="section-title"><h3>시장·정책 자동 탐색</h3><span class="small-tag">공식 발표 우선</span></div>
+<p>금융감독원·금융위원회·한국은행 보도자료와 매일경제·한국경제의 공개 목록을 탐색합니다. 제목·공개 RSS 요약을 기반으로 분석하며 본문·유료기사·첨부파일은 수집하지 않습니다.</p>
+<form id="watchForm"><label>관심 키워드 (쉼표로 구분)<input id="watchKeywords" maxlength="500" value="가계대출, 금리, 보험, 주택담보, 신용대출, DSR, K-ICS" /></label>
+<div class="field-pair"><label>발표 기간<select id="watchDays"><option value="7">최근 7일</option><option value="30" selected>최근 30일</option><option value="90">최근 90일</option></select></label>
+<label>자동 탐색<select id="watchEnabled"><option value="on">켜짐 · 화면/대화에서 갱신</option><option value="off">꺼짐</option></select></label></div>
+<button type="submit" class="btn primary full">최신 목록 탐색</button></form>
+<button id="watchAnalyze" class="btn light full">수집 자료 요약·전략 분석</button>
+<p id="watchState" role="status">자동 탐색 준비 중…</p><div id="watchSources"></div><div id="watchItems"></div>
+<p class="note">페이지가 열려 있는 동안 15분마다 캐시를 갱신합니다. 최신 목록에서 키워드를 찾으며 과거 전체 기사 검색이 아닙니다. 실패한 기관은 원문 링크로 확인하세요. 언론 보도는 확정된 규정으로 간주하지 않습니다.</p>
+<details><summary>직접 근거 추가 (보완용)</summary><form id="refForm"><label>자료 유형<select id="refCategory"><option value="market">시장환경</option><option value="policy">정책·규제</option></select></label><label>자료 제목<input id="refTitle" required maxlength="160" placeholder="예: 금리 관련 공식 통계 설명"/></label><div class="field-pair"><label>공표일<input id="refDate" type="date"/></label><label>출처 URL<input id="refUrl" type="url" placeholder="https://..."/></label></div><label>분석할 주요 내용<textarea id="refContent" required minlength="10" rows="4" placeholder="공식 자료에서 확인한 문장과 수치를 기재하세요."></textarea></label><button class="btn primary full" type="submit">근거 자료 등록</button></form></details><div class="ref-list-head"><h4>등록된 근거 <span id="refCount">0</span></h4><button id="clearRefs" class="text-button">전체 삭제</button></div><div id="refList" class="ref-list"><p class="empty-refs">등록된 외부자료가 없습니다.</p></div></div></div>
+      </section>
+      <section id="view-reports" class="view" aria-label="분석 보고서">
+        <div class="page-heading"><div><span class="eyebrow">STRATEGY REPORT</span><h2>월별 전략 분석보고서</h2><p>계산에 사용한 데이터와 가정을 명시한 검토용 보고서를 생성합니다.</p></div><button id="downloadReport" class="btn primary">↓ HTML 보고서 다운로드</button></div>
+        <div class="report-preview panel"><div class="report-label">RETAIL LENDING / MANAGEMENT REVIEW</div><h2>소매여신 월별 전략 분석</h2><p class="report-sub" id="reportSubtitle">2026년 12월 · 예시 데이터</p><div class="report-kpis"><div><small>전체 예상 순증</small><strong id="reportNet">+20억</strong></div><div><small>가정한도 대비 여력</small><strong id="reportRoom">+10억</strong></div><div><small>외부 근거 등록</small><strong id="reportRefs">0건</strong></div></div><h3>상품별 전망 요약</h3><div id="reportRows" class="report-rows"></div><h3>전략 점검사항</h3><ol><li>주택담보대출 순감 전략과 회수 전망 점검</li><li>신용대출 목표 달성 위험 및 신규 실행 여력 검토</li><li>보험계약대출 변동성과 가정한도 민감도 점검</li><li>상품별 규제상 포함 범위와 K-ICS 관련 영향은 별도 확인</li></ol><p class="report-disclaimer">본 자료는 연구·시연 목적의 의사결정 지원안입니다. 규제 적합성 판정 또는 실제 실행 승인 문서가 아닙니다.</p></div>
+      </section>
+    </main>
+    <footer class="composer" aria-label="Agent 질문 입력"><form id="chatForm"><span class="composer-icon">✦</span><input type="text" id="chatInput" autocomplete="off" maxlength="3000" placeholder="궁금한 내용을 입력하세요. 예: 12월 신용대출 목표 달성 위험은?" aria-label="Agent 질문"/><button id="sendChat" type="submit" aria-label="보내기">➤</button></form><p>Agent는 자료의 출처와 미확인 가정을 구분합니다. <span id="footerMode">데모 모드</span> · 실제 금융업무 활용 전 검증 필요</p></footer>
+  </div>
+</div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="/static/app.js?v=allocation-report" defer></script>
+<script src="/static/allocation.js?v=allocation-report" defer></script>
+<script src="/static/external.js" defer></script>
+<script src="/static/market-watch.js" defer></script>
+</body>
+</html>
